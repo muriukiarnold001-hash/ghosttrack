@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "GhostTrack Location",
+  "version": "1.0.0",
+  "description": "Use the existing GhostTrack dashboard to apply browser geolocation coordinates in Safari.",
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["main.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["bridge.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ]
+}
